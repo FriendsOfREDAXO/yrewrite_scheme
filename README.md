@@ -1,13 +1,14 @@
-**URL Scheme** stellt eine Auswahl von URL-Scheme für YRewrite zur Verfügung. 
-
+**URL Scheme** stellt eine Auswahl von URL-Schemes für YRewrite zur Verfügung. 
 In jedem Schema kann der Suffix gewählt werden. 
+
+> Andere AddOns, die eigene Schemes installieren sollten vorab deinstalliert / deaktiviert werden. 
 
 ## Standard
 
 Stellt das normale YRewrite-Schema zur Verfügung. 
 
-## URL_REPLACER
-Ersetzt die URLs der Elternkategorien mit den URLs der nächsten Kindkategorie.
+## URLReplace
+Ersetzt die URLs der Elternkategorien mit den URLs der nächst zugehörigen Kindkategorie.
 
 Hier stehen 2 Varianten zur Auswahl: 
 
