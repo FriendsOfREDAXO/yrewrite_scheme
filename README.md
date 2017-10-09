@@ -1,8 +1,10 @@
 **Schemes** stellt eine Auswahl von URL-Schemes für YRewrite zur Verfügung. 
 
+In jedem Schema kann der Suffix gewählt werden. 
+
 ## Standard
 
-stellt das normale YRewrite-Schema zur Verfügung. In jedem Schema kann der Suffix gewählt werden. 
+Stellt das normale YRewrite-Schema zur Verfügung. 
 
 ## URL_REPLACER
 Ersetzt die URLs der Elternkategorien mit den URLs der nächsten Kindkategorie.
