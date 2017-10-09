@@ -1,17 +1,22 @@
-#Schemes
+**Schemes** stellt eine Auswahl von URL-Schemes für YRewrite zur Verfügung. 
 
-##Standard
-Ersetzt die URLs nach dem normalen YRewrite-Schema + die Auswahl des gesetzten Suffix
-##URL_REPLACER
+## Standard
 
-Ersetzt die URLs leerer Elternkategorien mit den URLs der nächsten inhaltversehenen Kindkategorien.
-Ideal für Webpräsenzen, die keine Vorschaltseiten für die jeweilige Kategorie benötigen (z.B. bei einer Dropdown-Navi)
+stellt das normale YRewrite-Schema zur Verfügung. In jedem Schema kann der Suffix gewählt werden. 
 
-##One-Level
+## URL_REPLACER
+Ersetzt die URLs der Elternkategorien mit den URLs der nächsten Kindkategorie.
 
-Implementiert ein kurzes URL-Schema für alle Unterseiten auf Basis von [yrewrite](https://github.com/yakamara/redaxo_yrewrite).
+Hier stehen 2 Varianten zur Auswahl: 
 
-### Schema
+- Variante 1: Es werden nur Elternkategorien ausgetauscht, wenn deren Startartikel keinen Inhalt haben
+- Variante 2: Die Ersetzung findet immer statt, ungeachtet davon ob im Startartikel Inhale sind. 
+
+> Ideal für Webpräsenzen, die keine Vorschaltseiten für die jeweilige Kategorie benötigen (z.B. bei einer Dropdown-Navi)
+
+## One Level
+
+Implementiert ein kurzes URL-Schema für alle Unterseiten
 
 __Vorher:__
 
@@ -21,6 +26,7 @@ __Vorher:__
 __Nachher:__
 
 `example.tld/en/malabar`  _(ohne trailing slash)_  
+
 
 ## Eigenes Schema verwenden ohne dieses AddOn?
 
