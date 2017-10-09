@@ -37,7 +37,7 @@ Anleitung und Beispiele: https://github.com/FriendsOfREDAXO/tricks/blob/master/a
 
 ### Lizenz
 
-siehe [LICENCE](https://github.com/FriendsOfREDAXO/urlreplacer/blob/master/LICENCE)
+siehe [LICENCE](https://github.com/FriendsOfREDAXO/schemes/blob/master/LICENCE)
 
 **Projekt-Lead**
 
