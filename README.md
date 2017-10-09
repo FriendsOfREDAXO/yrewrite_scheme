@@ -27,7 +27,7 @@ __Vorher:__
 
 __Nachher:__
 
-`example.tld/en/malabar`  _(ohne trailing slash)_  
+`example.tld/en/malabar`  _(ohne suffix)_  
 
 
 ## Eigenes Schema verwenden ohne dieses AddOn?
