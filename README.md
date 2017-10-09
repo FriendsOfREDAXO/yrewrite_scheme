@@ -1,4 +1,4 @@
-**Schemes** stellt eine Auswahl von URL-Schemes für YRewrite zur Verfügung. 
+**URL Scheme** stellt eine Auswahl von URL-Scheme für YRewrite zur Verfügung. 
 
 In jedem Schema kann der Suffix gewählt werden. 
 
@@ -33,7 +33,7 @@ __Nachher:__
 
 ## Eigenes Schema verwenden ohne dieses AddOn?
 
-Anleitung und Beispiele: https://github.com/FriendsOfREDAXO/tricks/blob/master/addons_yrewrite_url_schemes.md
+Anleitung und Beispiele: [FriendsOfREDAXO/tricks](https://github.com/FriendsOfREDAXO/tricks/blob/master/addons_yrewrite_url_schemes.md)
 
 ### Lizenz
 
