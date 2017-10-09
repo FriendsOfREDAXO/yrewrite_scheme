@@ -1,9 +1,9 @@
-package: schemes
+package: url_schemes
 version: '1.0.0'
 author: Friends Of REDAXO
 supportpage: https://github.com/FriendsOfREDAXO/schemes
 page:
-    title: 'Schemes'
+    title: 'URL Schemes'
     perm: admin
     icon: rex-icon fa-recycle
     subpages:
