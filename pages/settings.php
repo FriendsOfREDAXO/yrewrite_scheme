@@ -89,7 +89,7 @@ $output = '
 
 echo $output;
 // Ausgabe Hilfe
-$file = rex_file::get(rex_path::addon('schemes','README.md'));
+$file = rex_file::get(rex_path::addon('url_schemes','README.md'));
 $body = rex_markdown::factory()->parse($file);
 $fragment = new rex_fragment();
 $fragment->setVar('class', 'edit');
