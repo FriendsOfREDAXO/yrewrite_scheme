@@ -1,14 +1,14 @@
 <?php
+$addon = rex_addon::get('url_scheme');
 $content = '';
 $buttons = '';
 // Einstellungen speichern
 if (rex_post('formsubmit', 'string') == '1') {
-	
-    $this->setConfig(rex_post('config', [
+    $addon->setConfig(rex_post('config', [
         ['suffix', 'string'],
         ['scheme', 'string'],
     ]));
-    echo rex_view::success($this->i18n('config_saved'));
+    echo rex_view::success($addon->i18n('config_saved'));
     rex_delete_cache();
 $newURL = rex_url::currentBackendPage();
 // Umleitung auf die aktuelle Seite auslösen
@@ -20,16 +20,16 @@ rex_response::sendRedirect($newURL);
 
 $formElements = [];
 $n = [];
-$n['label'] = '<label for="rex-urlreplacer-suffix">' . $this->i18n('suffix') . '</label>';
+$n['label'] = '<label for="rex-urlreplacer-suffix">' . $addon->i18n('suffix') . '</label>';
 $select = new rex_select();
 $select->setId('rex-urlreplacer-suffix');
 $select->setAttribute('class', 'form-control selectpicker');
 $select->setName('config[suffix]');
-$select->addOption($this->i18n('oSuf'), Null);
-$select->addOption($this->i18n('hSuf'), '.html');
-$select->addOption($this->i18n('zSuf'), '/');
+$select->addOption($addon->i18n('oSuf'), Null);
+$select->addOption($addon->i18n('hSuf'), '.html');
+$select->addOption($addon->i18n('zSuf'), '/');
 
-$select->setSelected($this->getConfig('suffix'));
+$select->setSelected($addon->getConfig('suffix'));
 $n['field'] = $select->get();
 $formElements[] = $n;
 
@@ -41,17 +41,17 @@ $content .= $fragment->parse('core/form/container.php');
 
 $formElements = [];
 $n = [];
-$n['label'] = '<label for="rex-urlreplacer-scheme">' . $this->i18n('scheme') . '</label>';
+$n['label'] = '<label for="rex-urlreplacer-scheme">' . $addon->i18n('scheme') . '</label>';
 $select = new rex_select();
 $select->setId('rex-urlreplacer-scheme');
 $select->setAttribute('class', 'form-control selectpicker');
 $select->setName('config[scheme]');
-$select->addOption($this->i18n('standard'), 'standard');
+$select->addOption($addon->i18n('standard'), 'standard');
 $select->addOption('URLReplace Variante 1', 'urlreplleer');
 $select->addOption('URLReplace Variante 2', 'nomatterurlrepl');
 $select->addOption('One-level', 'one_level');
 
-$select->setSelected($this->getConfig('scheme'));
+$select->setSelected($addon->getConfig('scheme'));
 $n['field'] = $select->get();
 $formElements[] = $n;
 
@@ -62,7 +62,7 @@ $content .= $fragment->parse('core/form/container.php');
 // Save-Button
 $formElements = [];
 $n = [];
-$n['field'] = '<button class="btn btn-save rex-form-aligned" type="submit" name="save" value="' . $this->i18n('config_save') . '">' . $this->i18n('config_save') . '</button>';
+$n['field'] = '<button class="btn btn-save rex-form-aligned" type="submit" name="save" value="' . $addon->i18n('config_save') . '">' . $addon->i18n('config_save') . '</button>';
 $formElements[] = $n;
 $fragment = new rex_fragment();
 $fragment->setVar('elements', $formElements, false);
@@ -75,7 +75,7 @@ $buttons = '
 // Ausgabe Formular
 $fragment = new rex_fragment();
 $fragment->setVar('class', 'edit');
-$fragment->setVar('title', $this->i18n('config'));
+$fragment->setVar('title', $addon->i18n('config'));
 $fragment->setVar('body', $content, false);
 $fragment->setVar('buttons', $buttons, false);
 $output = $fragment->parse('core/page/section.php');
@@ -93,7 +93,7 @@ $file = rex_file::get(rex_path::addon('url_scheme','README.md'));
 $body = rex_markdown::factory()->parse($file);
 $fragment = new rex_fragment();
 $fragment->setVar('class', 'edit');
-$fragment->setVar('title', $this->i18n('help'));
+$fragment->setVar('title', $addon->i18n('help'));
 $fragment->setVar('body', $body, false);
 $content = $fragment->parse('core/page/section.php');
 echo $content;
