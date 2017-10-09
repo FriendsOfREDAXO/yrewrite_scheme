@@ -5,7 +5,6 @@ supportpage: https://github.com/FriendsOfREDAXO/schemes
 page:
     title: 'Schemes'
     perm: admin
-    pjax: false
     icon: rex-icon fa-recycle
     subpages:
         settings:  
