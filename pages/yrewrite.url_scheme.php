@@ -92,7 +92,6 @@ echo $output;
 $file = rex_file::get(rex_path::addon('url_scheme','README.md'));
 $body = rex_markdown::factory()->parse($file);
 $fragment = new rex_fragment();
-$fragment->setVar('class', 'edit');
 $fragment->setVar('title', $addon->i18n('help'));
 $fragment->setVar('body', $body, false);
 $content = $fragment->parse('core/page/section.php');
