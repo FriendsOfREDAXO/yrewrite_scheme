@@ -29,8 +29,7 @@ __Nachher:__
 
 `example.tld/en/malabar`  _(ohne suffix)_  
 
-> :warnung: Wichtig: Das Schema ist nur dann sinnvoll, wenn Seiten innerhalb einer Sprache nicht mehrfach vorkommen. Gäbe es etwa den Malabar-Kaffee nicht nur in :flagge-in: Indien, sondern auch in :flagge-br: Brasilien, sollte dieses URL-Schema besser nicht verwendet werden!
-
+> ⚠️ Wichtig: Das Schema ist nur dann sinnvoll, wenn Seiten innerhalb einer Sprache __nicht mehrfach vorkommen__. Gäbe es etwa den Malabar-Kaffee nicht nur in 🇮🇳 Indien, sondern auch in 🇧🇷 Brasilien, sollte dieses URL-Schema besser nicht verwendet werden!
 
 ## Eigenes Schema verwenden ohne dieses AddOn?
 
