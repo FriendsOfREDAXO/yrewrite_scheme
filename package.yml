@@ -1,0 +1,16 @@
+package: schemes
+version: '2.0.0'
+author: Friends Of REDAXO
+supportpage: https://github.com/FriendsOfREDAXO/schemes
+page:
+    title: 'Schemes'
+    perm: admin
+    pjax: false
+    icon: rex-icon fa-recycle
+    subpages:
+        settings:  
+             title: 'translate:settings'
+
+requires:
+    packages:
+        yrewrite: '>=1.0.0'
