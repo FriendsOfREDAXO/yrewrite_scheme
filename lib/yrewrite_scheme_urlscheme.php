@@ -50,7 +50,7 @@ class yrewrite_one_level extends rex_yrewrite_scheme
     }
     public function appendArticle($path, rex_article $art, rex_yrewrite_domain $domain)
     {
-    	$suffix_content = rex_config::get('yrewrite_scheme', 'suffix');
+    	$path_suffix = rex_config::get('yrewrite_scheme', 'suffix');
         return $path . '/' . $this->normalize($art->getName(), $art->getClang()) . $path_suffix;
     }
 }
