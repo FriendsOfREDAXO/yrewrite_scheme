@@ -10,14 +10,8 @@ if (rex_post('formsubmit', 'string') == '1') {
     ]));
     echo rex_view::success($addon->i18n('config_saved'));
     rex_delete_cache();
-$newURL = rex_url::currentBackendPage();
-// Umleitung auf die aktuelle Seite auslösen
-rex_response::sendRedirect($newURL);
-
 }
-
 // BESTIMMUNG DES SUFFIX
-
 $formElements = [];
 $n = [];
 $n['label'] = '<label for="rex-urlreplacer-suffix">' . $addon->i18n('suffix') . '</label>';
