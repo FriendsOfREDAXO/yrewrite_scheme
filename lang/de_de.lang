@@ -5,4 +5,4 @@ standard = Standard
 oSuf = Ohne
 hSuf = .html
 zSuf = / 
-config_saved = Konfiguration wurde gespeichert 
+config_saved = Konfiguration wurde gespeichert und Cache gelöscht

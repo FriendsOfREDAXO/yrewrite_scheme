@@ -1,10 +1,10 @@
-package: url_scheme
+package: yrewrite_scheme
 version: '1.0.0'
 author: Friends Of REDAXO
 supportpage: https://github.com/FriendsOfREDAXO/schemes
 pages:
     yrewrite/url_scheme:
-        title: 'URL Scheme-AddOn'
+        title: 'YRewrite Scheme'
         perm: admin
         icon: rex-icon fa-exchange
 

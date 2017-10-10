@@ -1,5 +1,5 @@
 <?php
-$addon = rex_addon::get('url_scheme');
+$addon = rex_addon::get('yrewrite_scheme');
 $content = '';
 $buttons = '';
 // Einstellungen speichern
