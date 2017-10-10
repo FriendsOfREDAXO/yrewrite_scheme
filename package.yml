@@ -3,7 +3,7 @@ version: '1.0.0'
 author: Friends Of REDAXO
 supportpage: https://github.com/FriendsOfREDAXO/schemes
 pages:
-    yrewrite/url_scheme:
+    yrewrite/yrewrite_scheme:
         title: 'YRewrite Scheme'
         perm: admin
         icon: rex-icon fa-exchange
