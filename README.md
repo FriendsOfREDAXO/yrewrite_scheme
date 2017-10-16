@@ -38,7 +38,7 @@ Anleitung und Beispiele: [FriendsOfREDAXO/tricks](https://github.com/FriendsOfRE
 
 ### Lizenz
 
-siehe [LICENCE](https://github.com/FriendsOfREDAXO/schemes/blob/master/LICENCE)
+siehe [LICENCE](https://github.com/FriendsOfREDAXO/schemes/blob/master/LICENSE)
 
 **Projekt-Lead**
 
