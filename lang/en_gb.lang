@@ -6,3 +6,4 @@ oSuf = without
 hSuf = .html
 zSuf = /
 config_saved = Cnfiguration has been saved and cache has been cleared
+config_save = Save
