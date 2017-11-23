@@ -6,3 +6,4 @@ oSuf = Ohne
 hSuf = .html
 zSuf = / 
 config_saved = Konfiguration wurde gespeichert und Cache gelöscht
+config_save = Speichern
