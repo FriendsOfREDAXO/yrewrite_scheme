@@ -2,7 +2,7 @@
 
 if (!$this->hasConfig()) {
 	$this->setConfig('suffix', '/');
-	$this->setConfig('scheme', 'standard');
+	$this->setConfig('scheme', 'yrewrite_scheme_suffix');
 
 
 }
