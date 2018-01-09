@@ -40,10 +40,10 @@ $select = new rex_select();
 $select->setId('rex-urlreplacer-scheme');
 $select->setAttribute('class', 'form-control selectpicker');
 $select->setName('config[scheme]');
-$select->addOption($addon->i18n('standard'), 'standard');
-$select->addOption('URLReplace Variante 1', 'urlreplleer');
-$select->addOption('URLReplace Variante 2', 'nomatterurlrepl');
-$select->addOption('One-level', 'one_level');
+$select->addOption($addon->i18n('standard'), 'yrewrite_scheme_suffix');
+$select->addOption('URLReplace Variante 1', 'yrewrite_scheme_urlreplace');
+$select->addOption('URLReplace Variante 2', 'yrewrite_scheme_nomatter');
+$select->addOption('One-level', 'yrewrite_one_level');
 
 $select->setSelected($addon->getConfig('scheme'));
 $n['field'] = $select->get();
