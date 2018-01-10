@@ -11,4 +11,4 @@ pages:
 
 requires:
     packages:
-        yrewrite: '>=1.0.0'
+        yrewrite: '>=2.1.0'
