@@ -1,7 +1,7 @@
 package: yrewrite_scheme
 version: '2.0.0-beta1'
 author: Friends Of REDAXO
-supportpage: https://github.com/FriendsOfREDAXO/schemes
+supportpage: https://github.com/FriendsOfREDAXO/yrewrite_scheme/
 pages:
     yrewrite/yrewrite_scheme:
         title: 'YRewrite Scheme'
