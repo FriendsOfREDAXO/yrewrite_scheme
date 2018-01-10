@@ -1,5 +1,5 @@
 <?php
-	
+// Version-Check	
 if (rex_string::versionCompare($this->getVersion(), '2.0', '<')) {
 	
 if($this->getConfig('scheme') == 'standard') {
