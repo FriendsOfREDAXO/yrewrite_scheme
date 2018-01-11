@@ -80,7 +80,6 @@ $output = '
 </form>
 ';
 
-
 echo $output;
 // Ausgabe Hilfe
 $file = rex_file::get(rex_path::addon('yrewrite_scheme','README.md'));
