@@ -1,5 +1,5 @@
 package: yrewrite_scheme
-version: '2.0.0-beta2'
+version: '2.0.0'
 author: Friends Of REDAXO
 supportpage: https://github.com/FriendsOfREDAXO/yrewrite_scheme/
 pages:
@@ -7,7 +7,6 @@ pages:
         title: 'YRewrite Scheme'
         perm: admin
         icon: rex-icon fa-exchange
-
 
 requires:
     packages:
