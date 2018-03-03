@@ -53,3 +53,18 @@ class yrewrite_one_level extends rex_yrewrite_scheme
         return $path . '/' . $this->normalize($art->getName(), $art->getClang()) . $path_suffix;
     }
 }
+
+
+
+class yrewrite_classic_mode extends rex_yrewrite_scheme
+{ 
+    public function appendCategory($path, rex_category $cat, rex_yrewrite_domain $domain)
+    {
+        return $path ;
+    }
+    public function appendArticle($path, rex_article $art, rex_yrewrite_domain $domain)
+    {
+    	$path_suffix = rex_config::get('yrewrite_scheme', 'suffix');
+        return $path . '/' . $art->getId() .'-'. $art->getClang() .'-'. $this->normalize($art->getName(), $art->getClang()) . $path_suffix;
+    }
+}
