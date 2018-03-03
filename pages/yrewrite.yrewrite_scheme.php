@@ -44,6 +44,7 @@ $select->addOption($addon->i18n('standard'), 'yrewrite_scheme_suffix');
 $select->addOption('URLReplace Variante 1', 'yrewrite_scheme_urlreplace');
 $select->addOption('URLReplace Variante 2', 'yrewrite_scheme_nomatter');
 $select->addOption('One-level', 'yrewrite_one_level');
+$select->addOption('REDAXO 3/4.x - ArtID-ClangID-artikel', 'yrewrite_classic_mode');
 
 $select->setSelected($addon->getConfig('scheme'));
 $n['field'] = $select->get();
