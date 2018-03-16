@@ -44,7 +44,7 @@ Gerade bei migrierten Websites könnte das nützlich sein. Als Suffix sollte man
 
 ## Eigenes Schema verwenden ohne dieses AddOn?
 
-Anleitung und Beispiele: [FriendsOfREDAXO/tricks](https://github.com/FriendsOfREDAXO/tricks/blob/master/addons_yrewrite_url_schemes.md)
+Anleitung und Beispiele findet Ihr in der Dokumentation innerhalb des yrewrite-Addons oder auf [Github](https://github.com/yakamara/redaxo_yrewrite/blob/2bfc3c5e5b5776676241c300f65900fcc2914622/pages/docs.php#L239).
 
 ## Lizenz
 
