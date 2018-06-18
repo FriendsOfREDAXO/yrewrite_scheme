@@ -1,6 +1,7 @@
-**YRewrite Scheme** stellt eine Auswahl von URL-Schemes für YRewrite zur Verfügung.
+**YRewrite Scheme** stellt eine Auswahl von URL-Schemes für YRewrite zur Verfügung. 
 
 In jedem Schema kann der Suffix gewählt werden. Andere AddOns, die eigene Schemes installieren, sollten vorab deaktiviert werden.
+Die Einstellungen findet man im zusätzlichen Reiter **YRewrite Scheme** in YRewrite. 
 
 ## 1. Standard
 
