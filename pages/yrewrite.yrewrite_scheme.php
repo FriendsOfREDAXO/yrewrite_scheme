@@ -9,6 +9,10 @@ if (rex_post('formsubmit', 'string') == '1') {
         ['scheme', 'string'],
     ]));
     echo rex_view::success($addon->i18n('config_saved'));
+    if (rex::getVersion() == "5.6.0")
+    {
+       rex_config::save(); // REX 5.6.0 Save Fix
+    }
     rex_delete_cache();
 }
 // BESTIMMUNG DES SUFFIX
