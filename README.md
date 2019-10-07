@@ -12,17 +12,7 @@ Stellt ein optimiertes YRewrite-Schema zur Verfügung, das dieser Form entsprich
 `example.tld/sprache/kategorie/kategorie/…/artikel/`
 Es ist insofern optimiert, dass es html Tags aus URLs entfernt und eine erweiterte Ersetzungstabelle verwendet. Die erweiterte Ersetzungstabelle weiß nur bei speziellen Serverkonfigurationen unterschiede zum YRewrite Schema auf. Sie ist vor allem für Sprachen, die die URL kodierung Nutzen interessant.
 
-### 2. URLReplace
-
-Ersetzt die URLs der Elternkategorien mit den URLs der nächst zugehörigen Kindkategorie.  
-Hier stehen 2 Varianten zur Auswahl:
-
-- Variante 1: Es werden nur die Kategorien ersetzt, deren Startartikel keinen Inhalt haben.
-- Variante 2: Es werden alle Kategorien ersetzt, unabhängig vom Inhalt der Startartikel. 
-
-> Ideal für Webpräsenzen, die keine Vorschaltseiten für die jeweilige Kategorie benötigen (z.B. bei einer Dropdown-Navigation)
-
-### 3. One Level
+### 2. One Level
 
 Implementiert ein kurzes URL-Schema für alle Unterseiten.
 
@@ -38,6 +28,18 @@ __Nachher:__
 > ⚠️ Wichtig: Das Schema ist nur dann sinnvoll, wenn Seiten innerhalb einer Sprache __nicht mehrfach vorkommen__. Gäbe es etwa den Malabar-Kaffee nicht nur in 🇮🇳 Indien, sondern auch in 🇧🇷 Brasilien, sollte dieses URL-Schema besser nicht verwendet werden!
 
 ---
+
+## URLReplace
+
+Ersetzt die URLs der Elternkategorien mit den URLs der nächst zugehörigen Kindkategorie.  
+Hier stehen 2 Varianten zur Auswahl:
+
+- Variante 1: Es werden nur die Kategorien ersetzt, deren Startartikel keinen Inhalt haben.
+- Variante 2: Es werden alle Kategorien ersetzt, unabhängig vom Inhalt der Startartikel. 
+
+> Ideal für Webpräsenzen, die keine Vorschaltseiten für die jeweilige Kategorie benötigen (z.B. bei einer Dropdown-Navigation)
+
+
 
 ## Sprachen
 
