@@ -1,7 +1,6 @@
 **YRewrite Scheme** stellt eine Auswahl von URL-Schemes für YRewrite zur Verfügung. 
 
-In jedem Schema kann der Suffix gewählt werden. Andere AddOns, die eigene Schemes installieren, sollten vorab deaktiviert werden.
-Die Einstellungen findet man im zusätzlichen Reiter **YRewrite Scheme** in YRewrite. 
+Für jedes Schema kann der Suffix und die passende **URL-Normalisierung je Sprache** gewählt werden. Andere AddOns, die eigene Schemes installieren, sollten vorab deaktiviert werden. Die Einstellungen findet man im zusätzlichen Reiter **YRewrite Scheme** in YRewrite. 
 
 ## 1. Standard
 
@@ -56,8 +55,8 @@ siehe [LICENSE](https://github.com/FriendsOfREDAXO/schemes/blob/master/LICENSE)
 
 ## Credits
 
-- [Christian Gehrke](https://github.com/chrison94) 
 - [Joachim Dörr](https://github.com/joachimdoerr)
-- [Dirk Schürjohann](https://github.com/schuer)
+- [Christian Gehrke](https://github.com/chrison94)
 - [Tobias Krais](https://github.com/tobiaskrais)
+- [Dirk Schürjohann](https://github.com/schuer)
 - [FriendsOfREDAXO](https://github.com/FriendsOfREDAXO)
