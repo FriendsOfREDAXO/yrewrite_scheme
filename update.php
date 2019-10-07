@@ -23,3 +23,13 @@ if (rex_string::versionCompare($this->getVersion(), '3.0', '<')) {
 	}
 	
 }
+if (rex_string::versionCompare($this->getVersion(), '3.1', '<')) {
+	if($this->getConfig('scheme') == 'rewrite_scheme_urlreplace') {
+	$this->setConfig('scheme', 'standard');
+        $this->setConfig('replacer', 'urlreplace');
+	}
+	if($this->getConfig('scheme') == 'yrewrite_scheme_nomatter') {
+	$this->setConfig('scheme', 'standard');
+        $this->setConfig('replacer', 'nomatter');
+	}	
+}
