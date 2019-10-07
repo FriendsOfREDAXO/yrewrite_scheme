@@ -1,10 +1,7 @@
 <?php
-
 if (!$this->hasConfig()) {
 	$this->setConfig('suffix', '/');
 	$this->setConfig('scheme', 'yrewrite_scheme_suffix');
-
-
 }
 
 $somethingIsWrong = false;
@@ -16,4 +13,3 @@ if ($somethingIsWrong) {
     $this->setProperty('installmsg', 'Something is wrong');
     $this->setProperty('install', false);
 }
-?>

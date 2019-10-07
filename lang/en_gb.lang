@@ -1,7 +1,13 @@
+yrewrite_scheme_classic = REDAXO 3/4.x - ArtID-ClangID-Article
+yrewrite_scheme_one_level = One-level
 yrewrite_scheme_settings = settings
 yrewrite_scheme_suffix = Suffix
 yrewrite_scheme_scheme = Scheme
 yrewrite_scheme_standard = standard
+yrewrite_scheme_yrewrite = Use optimized YRewrite standard scheme
+yrewrite_scheme_urlencode = Use URL encode, e.g. for kyrillic or chinese chars
+yrewrite_scheme_urlreplace_var_1 = URLReplace option 1
+yrewrite_scheme_urlreplace_var_2 = URLReplace option 2
 yrewrite_scheme_oSuf = without
 yrewrite_scheme_hSuf = .html
 yrewrite_scheme_zSuf = /
