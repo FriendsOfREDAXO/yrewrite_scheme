@@ -14,3 +14,5 @@ yrewrite_scheme_hSuf = .html
 yrewrite_scheme_zSuf = / 
 yrewrite_scheme_config_saved = Konfiguration wurde gespeichert und Cache gelöscht
 yrewrite_scheme_config_save = Speichern
+yrewrite_scheme_urlreplace = URL-Ersetzung
+yrewrite_scheme_urlreplace_disabled = deaktiviert
