@@ -21,7 +21,7 @@ class yrewrite_url_schemes extends rex_yrewrite_scheme {
 			if ($art->isStartArticle() && $domain->getMountId() != $art->getId()) {
 				return $path . $path_suffix;
 			}
-			return $path . '/' . $this->normalize($art->getName()) . $path_suffix;
+			return $path . '/' . $this->normalize($art->getName(), $art->getClang()) . $path_suffix;
 		}
 		else if($scheme == 'yrewrite_one_level') {
 			// one level scheme
