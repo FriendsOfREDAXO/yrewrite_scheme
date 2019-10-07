@@ -2,7 +2,7 @@
 
 stellt eine Auswahl von URL-Schemes für YRewrite zur Verfügung. 
 
-Für jedes Schema kann der Suffix und die passende **URL-Normalisierung je Sprache** gewählt werden. Andere AddOns, die eigene Schemes installieren, sollten vorab deaktiviert werden. Die Einstellungen findet man im zusätzlichen Reiter **YRewrite Scheme** in YRewrite. 
+Für jedes Schema können der Suffix, die passende **URL-Normalisierung je Sprache** und eine URL-Ersetzung gewählt werden. Andere AddOns, die eigene Schemes installieren, sollten vorab deaktiviert werden. Die Einstellungen findet man im zusätzlichen Reiter **YRewrite Scheme** in YRewrite. 
 
 ## Schemen
 
