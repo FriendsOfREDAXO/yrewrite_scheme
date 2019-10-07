@@ -8,6 +8,7 @@ if (rex_post('formsubmit', 'string') == '1') {
 	$configs = [
         ['suffix', 'string'],
         ['scheme', 'string'],
+        ['urlreplacer', 'string'],
     ];
 	foreach(rex_clang::getAll() as $rex_clang) {
 		$configs[] = ['urlencode-lang-' . $rex_clang->getId(), 'string'];
@@ -42,23 +43,48 @@ $fragment = new rex_fragment();
 $fragment->setVar('elements', $formElements, false);
 $content .= $fragment->parse('core/form/container.php');
 
+
 // rewrite method
 $formElements = [];
 $n = [];
-$n['label'] = '<label for="rex-urlreplacer-scheme">' . $addon->i18n('scheme') . '</label>';
+$n['label'] = '<label for="rex-url-scheme">' . $addon->i18n('scheme') . '</label>';
 $select = new rex_select();
-$select->setId('rex-urlreplacer-scheme');
+$select->setId('rex-url-scheme');
 $select->setAttribute('class', 'form-control selectpicker');
 $select->setName('config[scheme]');
 $select->addOption($addon->i18n('standard'), 'yrewrite_scheme_suffix');
-$select->addOption($addon->i18n('urlreplace_var_1'), 'yrewrite_scheme_urlreplace');
-$select->addOption($addon->i18n('urlreplace_var_2'), 'yrewrite_scheme_nomatter');
 $select->addOption($addon->i18n('yrewrite_scheme_one_level'), 'yrewrite_one_level');
 
 $select->setSelected($addon->getConfig('scheme'));
 $n['field'] = $select->get();
 $formElements[] = $n;
 
+$fragment = new rex_fragment();
+$fragment->setVar('elements', $formElements, false);
+$content .= $fragment->parse('core/form/container.php');
+
+
+$formElements = [];
+$n = [];
+$n['label'] = '<label for="rex-urlreplacer-urlreplacer">' . $addon->i18n('urlreplace') . '</label>';
+$select = new rex_select();
+$select->setId('rex-url-replacer');
+$select->setAttribute('class', 'form-control selectpicker');
+$select->setName('config[urlreplacer]');
+$select->addOption($addon->i18n('urlreplace_disabled'), '');
+$select->addOption($addon->i18n('urlreplace_var_1'), 'yrewrite_scheme_urlreplace');
+$select->addOption($addon->i18n('urlreplace_var_2'), 'yrewrite_scheme_nomatter');
+
+$select->setSelected($addon->getConfig('urlreplacer'));
+$n['field'] = $select->get();
+$formElements[] = $n;
+
+$fragment = new rex_fragment();
+$fragment->setVar('elements', $formElements, false);
+$content .= $fragment->parse('core/form/container.php');
+
+$formElements = [];
+$n = [];
 // language specific urlencode settings
 foreach(rex_clang::getAll() as $rex_clang) {
 	$n['label'] = '<label for="rex-urlreplacer-scheme-lang-' . $rex_clang->getId() . '">' . $rex_clang->getName() . '</label>';
