@@ -2,13 +2,15 @@
 
 Für jedes Schema kann der Suffix und die passende **URL-Normalisierung je Sprache** gewählt werden. Andere AddOns, die eigene Schemes installieren, sollten vorab deaktiviert werden. Die Einstellungen findet man im zusätzlichen Reiter **YRewrite Scheme** in YRewrite. 
 
-## 1. Standard
+## Schemen
+
+### 1. Standard
 
 Stellt ein optimiertes YRewrite-Schema zur Verfügung, das dieser Form entspricht:  
 `example.tld/sprache/kategorie/kategorie/…/artikel/`
 Es ist insofern optimiert, dass es html Tags aus URLs entfernt und eine erweiterte Ersetzungstabelle verwendet. Die erweiterte Ersetzungstabelle weiß nur bei speziellen Serverkonfigurationen unterschiede zum YRewrite Schema auf. Sie ist vor allem für Sprachen, die die URL kodierung Nutzen interessant.
 
-## 2. URLReplace
+### 2. URLReplace
 
 Ersetzt die URLs der Elternkategorien mit den URLs der nächst zugehörigen Kindkategorie.  
 Hier stehen 2 Varianten zur Auswahl:
@@ -18,7 +20,7 @@ Hier stehen 2 Varianten zur Auswahl:
 
 > Ideal für Webpräsenzen, die keine Vorschaltseiten für die jeweilige Kategorie benötigen (z.B. bei einer Dropdown-Navigation)
 
-## 3. One Level
+### 3. One Level
 
 Implementiert ein kurzes URL-Schema für alle Unterseiten.
 
@@ -38,6 +40,9 @@ __Nachher:__
 ## Sprachen
 
 Für jede Sprache kann eingestellt werden, ob das optimierte YRewrite Schema verwendet werden soll, oder die Zeichen URL kodiert werden sollen. Letzteres ermöglicht russische, chinesische und andere URLs - kurz gesagt URLs mit Zeichen die nicht das lateinische Alphabet verwenden.
+
+мне-нравится-редакс.html
+编辑系统.html
 
 ---
 
