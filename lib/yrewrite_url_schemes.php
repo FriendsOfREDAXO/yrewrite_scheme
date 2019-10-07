@@ -14,8 +14,6 @@ class yrewrite_url_schemes extends rex_yrewrite_scheme {
     public function appendArticle($path, rex_article $art, rex_yrewrite_domain $domain) {
 	        $scheme = rex_config::get('yrewrite_scheme', 'scheme', '');
 		if($scheme == 'yrewrite_scheme_suffix') {
-			// urlreplace scheme
-			// nomatter scheme
 			// standard / suffix scheme
 			$path_suffix = rex_config::get('yrewrite_scheme', 'suffix');
 			if ($art->isStartArticle() && $domain->getMountId() != $art->getId()) {
@@ -24,7 +22,7 @@ class yrewrite_url_schemes extends rex_yrewrite_scheme {
 			return $path . '/' . $this->normalize($art->getName(), $art->getClang()) . $path_suffix;
 		}
 		else if($scheme == 'yrewrite_one_level') {
-			// one level scheme
+		// one level scheme
 	    	$path_suffix = rex_config::get('yrewrite_scheme', 'suffix');
 	        return $path . '/' . $this->normalize($art->getName(), $art->getClang()) . $path_suffix;
 		}
