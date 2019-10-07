@@ -29,11 +29,6 @@ class yrewrite_url_schemes extends rex_yrewrite_scheme {
 	    	$path_suffix = rex_config::get('yrewrite_scheme', 'suffix');
 	        return $path . '/' . $this->normalize($art->getName(), $art->getClang()) . $path_suffix;
 		}
-		else if($scheme == 'yrewrite_classic_mode') {
-			// classic mode scheme
-			$path_suffix = rex_config::get('yrewrite_scheme', 'suffix');
-			return $path . '/' . $art->getId() .'-'. $art->getClang() .'-'. $this->normalize($art->getName(), $art->getClang()) . $path_suffix;
-		}
 		
 		// Default
 		return parent::appendArticle($path, $art, $domain);
@@ -50,8 +45,8 @@ class yrewrite_url_schemes extends rex_yrewrite_scheme {
     public function appendCategory($path, rex_category $cat, rex_yrewrite_domain $domain) {
 		$scheme = rex_config::get('yrewrite_scheme', 'scheme', '');
 		
-		if($scheme == 'yrewrite_one_level' || $scheme == 'yrewrite_classic_mode') {
-			// one level or classic mode scheme
+		if($scheme == 'yrewrite_one_level') {
+			// one level scheme
 			return $path;
 		}
 		

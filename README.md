@@ -34,13 +34,6 @@ __Nachher:__
 
 > ⚠️ Wichtig: Das Schema ist nur dann sinnvoll, wenn Seiten innerhalb einer Sprache __nicht mehrfach vorkommen__. Gäbe es etwa den Malabar-Kaffee nicht nur in 🇮🇳 Indien, sondern auch in 🇧🇷 Brasilien, sollte dieses URL-Schema besser nicht verwendet werden!
 
-
-## 4. REDAXO 3/4.x - ArtID-ClangID-artikel
-
-Stellt das Original-Rewriting aus REDAXO 3.x-4.x wieder her. 
-Gerade bei migrierten Websites könnte das nützlich sein. Als Suffix sollte man **.html** wählen. 
-
-
 ---
 
 ## Sprachen

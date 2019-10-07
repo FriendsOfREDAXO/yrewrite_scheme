@@ -54,7 +54,6 @@ $select->addOption($addon->i18n('standard'), 'yrewrite_scheme_suffix');
 $select->addOption($addon->i18n('urlreplace_var_1'), 'yrewrite_scheme_urlreplace');
 $select->addOption($addon->i18n('urlreplace_var_2'), 'yrewrite_scheme_nomatter');
 $select->addOption($addon->i18n('yrewrite_scheme_one_level'), 'yrewrite_one_level');
-$select->addOption($addon->i18n('yrewrite_scheme_classic'), 'yrewrite_classic_mode');
 
 $select->setSelected($addon->getConfig('scheme'));
 $n['field'] = $select->get();
