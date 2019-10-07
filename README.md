@@ -42,6 +42,7 @@ __Nachher:__
 Für jede Sprache kann eingestellt werden, ob das optimierte YRewrite Schema verwendet werden soll, oder die Zeichen URL kodiert werden sollen. Letzteres ermöglicht russische, chinesische und andere URLs - kurz gesagt URLs mit Zeichen die nicht das lateinische Alphabet verwenden.
 
 мне-нравится-редакс.html
+
 编辑系统.html
 
 ---
