@@ -5,8 +5,9 @@ Die Einstellungen findet man im zusätzlichen Reiter **YRewrite Scheme** in YRew
 
 ## 1. Standard
 
-Stellt das normale YRewrite-Schema zur Verfügung, das dieser Form entspricht:  
+Stellt ein optimiertes YRewrite-Schema zur Verfügung, das dieser Form entspricht:  
 `example.tld/sprache/kategorie/kategorie/…/artikel/`
+Es ist insofern optimiert, dass es html Tags aus URLs entfernt und eine erweiterte Ersetzungstabelle verwendet. Die erweiterte Ersetzungstabelle weiß nur bei speziellen Serverkonfigurationen unterschiede zum YRewrite Schema auf. Sie ist vor allem für Sprachen, die die URL kodierung Nutzen interessant.
 
 ## 2. URLReplace
 
@@ -42,6 +43,11 @@ Gerade bei migrierten Websites könnte das nützlich sein. Als Suffix sollte man
 
 ---
 
+## Sprachen
+
+Für jede Sprache kann eingestellt werden, ob das optimierte YRewrite Schema verwendet werden soll, oder die Zeichen URL kodiert werden sollen. Letzteres ermöglicht russische, chinesische und andere URLs - kurz gesagt URLs mit Zeichen die nicht das lateinische Alphabet verwenden.
+
+---
 
 ## Eigenes Schema verwenden ohne dieses AddOn?
 
