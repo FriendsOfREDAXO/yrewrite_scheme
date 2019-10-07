@@ -5,8 +5,9 @@ Die Einstellungen findet man im zusätzlichen Reiter **YRewrite Scheme** in YRew
 
 ## 1. Standard
 
-Stellt das normale YRewrite-Schema zur Verfügung, das dieser Form entspricht:  
+Stellt ein optimiertes YRewrite-Schema zur Verfügung, das dieser Form entspricht:  
 `example.tld/sprache/kategorie/kategorie/…/artikel/`
+Es ist insofern optimiert, dass es html Tags aus URLs entfernt und eine erweiterte Ersetzungstabelle verwendet. Die erweiterte Ersetzungstabelle weiß nur bei speziellen Serverkonfigurationen unterschiede zum YRewrite Schema auf. Sie ist vor allem für Sprachen, die die URL kodierung Nutzen interessant.
 
 ## 2. URLReplace
 
@@ -33,15 +34,13 @@ __Nachher:__
 
 > ⚠️ Wichtig: Das Schema ist nur dann sinnvoll, wenn Seiten innerhalb einer Sprache __nicht mehrfach vorkommen__. Gäbe es etwa den Malabar-Kaffee nicht nur in 🇮🇳 Indien, sondern auch in 🇧🇷 Brasilien, sollte dieses URL-Schema besser nicht verwendet werden!
 
-
-## 4. REDAXO 3/4.x - ArtID-ClangID-artikel
-
-Stellt das Original-Rewriting aus REDAXO 3.x-4.x wieder her. 
-Gerade bei migrierten Websites könnte das nützlich sein. Als Suffix sollte man **.html** wählen. 
-
-
 ---
 
+## Sprachen
+
+Für jede Sprache kann eingestellt werden, ob das optimierte YRewrite Schema verwendet werden soll, oder die Zeichen URL kodiert werden sollen. Letzteres ermöglicht russische, chinesische und andere URLs - kurz gesagt URLs mit Zeichen die nicht das lateinische Alphabet verwenden.
+
+---
 
 ## Eigenes Schema verwenden ohne dieses AddOn?
 
@@ -60,4 +59,5 @@ siehe [LICENSE](https://github.com/FriendsOfREDAXO/schemes/blob/master/LICENSE)
 - [Christian Gehrke](https://github.com/chrison94) 
 - [Joachim Dörr](https://github.com/joachimdoerr)
 - [Dirk Schürjohann](https://github.com/schuer)
+- [Tobias Krais](https://github.com/tobiaskrais)
 - [FriendsOfREDAXO](https://github.com/FriendsOfREDAXO)
