@@ -72,7 +72,7 @@ class yrewrite_url_schemes extends rex_yrewrite_scheme {
 		}
 		else if($scheme == 'yrewrite_scheme_nomatter') {
 			// nomatter scheme
-			if ($art->isStartArticle() && ($cats = $art->getCategory()->getChildren(true))) {
+			if ($art->isStartArticle() && $domain->getMountId() != $art->getId() && $domain->getStartId() != $art->getId() && ($cats = $art->getCategory()->getChildren(true))) {
 				return $cats[0];
 			}
 			return false;

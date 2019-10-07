@@ -1,10 +1,10 @@
 package: yrewrite_scheme
-version: '2.1.3'
+version: '2.2.0'
 author: Friends Of REDAXO
 supportpage: https://github.com/FriendsOfREDAXO/yrewrite_scheme/
 pages:
     yrewrite/yrewrite_scheme:
-        title: 'YRewrite Scheme'
+        title: 'translate:yrewrite_scheme_title'
         perm: admin
         icon: rex-icon fa-exchange
 

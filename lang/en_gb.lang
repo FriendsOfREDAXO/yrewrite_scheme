@@ -4,6 +4,7 @@ yrewrite_scheme_settings = settings
 yrewrite_scheme_suffix = Suffix
 yrewrite_scheme_scheme = Scheme
 yrewrite_scheme_standard = standard
+yrewrite_scheme_title = YRewrite Scheme
 yrewrite_scheme_yrewrite = Use optimized YRewrite standard scheme
 yrewrite_scheme_urlencode = Use URL encode, e.g. for kyrillic or chinese chars
 yrewrite_scheme_urlreplace_var_1 = URLReplace option 1
