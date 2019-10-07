@@ -17,3 +17,9 @@ if (rex_string::versionCompare($this->getVersion(), '2.0', '<')) {
 		$this->setConfig('scheme', 'yrewrite_one_level');
 	}
 }
+if (rex_string::versionCompare($this->getVersion(), '3.0', '<')) {
+	if($this->getConfig('scheme') == 'yrewrite_classic_mode') {
+	$this->setConfig('scheme', 'standard');
+	}
+	
+}
