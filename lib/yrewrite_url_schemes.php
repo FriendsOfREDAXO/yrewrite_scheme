@@ -12,9 +12,8 @@ class yrewrite_url_schemes extends rex_yrewrite_scheme {
      * @return string
      */
     public function appendArticle($path, rex_article $art, rex_yrewrite_domain $domain) {
-		$scheme = rex_config::get('yrewrite_scheme', 'scheme', '');
-		
-		if($scheme == 'yrewrite_scheme_urlreplace' || $scheme == 'yrewrite_scheme_nomatter' || $scheme == 'yrewrite_scheme_suffix') {
+	        $scheme = rex_config::get('yrewrite_scheme', 'scheme', '');
+		if($scheme == 'yrewrite_scheme_suffix') {
 			// urlreplace scheme
 			// nomatter scheme
 			// standard / suffix scheme
@@ -29,11 +28,9 @@ class yrewrite_url_schemes extends rex_yrewrite_scheme {
 	    	$path_suffix = rex_config::get('yrewrite_scheme', 'suffix');
 	        return $path . '/' . $this->normalize($art->getName(), $art->getClang()) . $path_suffix;
 		}
-		
 		// Default
 		return parent::appendArticle($path, $art, $domain);
     }
-
     /**
 	 * Append category name
      * @param string              $path
@@ -61,16 +58,16 @@ class yrewrite_url_schemes extends rex_yrewrite_scheme {
      * @return rex_structure_element|false
      */
 	public function getRedirection(rex_article $art, rex_yrewrite_domain $domain) {
-		$scheme = rex_config::get('yrewrite_scheme', 'scheme', '');
+		$urlreplacer = rex_config::get('yrewrite_scheme', 'urlreplacer', '');
 		
-		if($scheme == 'yrewrite_scheme_urlreplace') {
+		if($urlreplacer == 'yrewrite_scheme_urlreplace') {
 			// urlreplace scheme
 			if ($art->isStartArticle() && ($cats = $art->getCategory()->getChildren(true)) && !rex_article_slice::getFirstSliceForCtype(1, $art->getId(), rex_clang::getCurrentId())) {
 				return $cats[0];
 			}
 			return false;
 		}
-		else if($scheme == 'yrewrite_scheme_nomatter') {
+		else if($urlreplacer == 'yrewrite_scheme_nomatter') {
 			// nomatter scheme
 			if ($art->isStartArticle() && $domain->getMountId() != $art->getId() && $domain->getStartId() != $art->getId() && ($cats = $art->getCategory()->getChildren(true))) {
 				return $cats[0];
