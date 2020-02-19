@@ -40,7 +40,7 @@ class yrewrite_url_schemes extends rex_yrewrite_scheme {
     {
         $path_suffix = rex_config::get('yrewrite_scheme', 'suffix');
         if ($path_suffix == '.html') {
-            $path_suffix = '';
+            $path_suffix = '/';
         }
 
         if ($domain->getStartId() == $art->getId()) {
