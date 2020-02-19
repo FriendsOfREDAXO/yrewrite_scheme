@@ -29,6 +29,33 @@ class yrewrite_url_schemes extends rex_yrewrite_scheme {
 		// Default
 		return parent::appendArticle($path, $art, $domain);
     }
+    
+    /**
+     * @param rex_article         $art
+     * @param rex_yrewrite_domain $domain
+     *
+     * @return string|false
+     */
+    public function getCustomUrl(rex_article $art, rex_yrewrite_domain $domain)
+    {
+        $path_suffix = rex_config::get('yrewrite_scheme', 'suffix');
+        if ($path_suffix == '.html') {
+            $path_suffix = '';
+        }
+
+        if ($domain->getStartId() == $art->getId()) {
+            if ($domain->getStartClang() == $art->getClang()) {
+                return '/';
+            }
+
+            return $this->getClang($art->getClang(), $domain) . $path_suffix;
+        }
+        if ($url = $art->getValue('yrewrite_url')) {
+            return $url;
+        }
+        return false;
+    }
+    
     /**
 	 * Append category name
      * @param string              $path
