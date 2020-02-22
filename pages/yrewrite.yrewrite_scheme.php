@@ -9,6 +9,7 @@ if (rex_post('formsubmit', 'string') == '1') {
         ['suffix', 'string'],
         ['scheme', 'string'],
         ['urlreplacer', 'string'],
+        ['excluded_categories', 'array'],
     ];
 	foreach(rex_clang::getAll() as $rex_clang) {
 		$configs[] = ['urlencode-lang-' . $rex_clang->getId(), 'string'];
@@ -16,7 +17,7 @@ if (rex_post('formsubmit', 'string') == '1') {
     $addon->setConfig(rex_post('config', $configs));
 
 	echo rex_view::success($addon->i18n('config_saved'));
-    
+
 	if (rex::getVersion() == "5.6.0") {
        rex_config::save(); // REX 5.6.0 Save Fix
     }
@@ -57,6 +58,34 @@ $select->addOption($addon->i18n('yrewrite_scheme_one_level'), 'yrewrite_one_leve
 
 $select->setSelected($addon->getConfig('scheme'));
 $n['field'] = $select->get();
+$formElements[] = $n;
+
+$fragment = new rex_fragment();
+$fragment->setVar('elements', $formElements, false);
+$content .= $fragment->parse('core/form/container.php');
+
+
+// exclude catgeories
+$tableSelect = new rex_select();
+$tableSelect->setMultiple();
+$tableSelect->setId('rex-exclude-categories');
+$tableSelect->setSize(20);
+$tableSelect->setName('config[excluded_categories][]');
+$tableSelect->setAttribute('class', 'form-control');
+$query = 'SELECT id,catname,path FROM '.rex::getTable('article').' WHERE startarticle = 1 AND clang_id = '.rex_clang::getCurrentId();
+$sql = rex_sql::factory();
+$categories = $sql->getArray($query);
+foreach($categories as $category) {
+    $tableSelect->addOption($category['catname'],$category['id'] );
+    if ( in_array($category['id'], $addon->getConfig('excluded_categories'))) {
+        $tableSelect->setSelected($category);
+    }
+}
+
+$formElements = [];
+$n = [];
+$n['label'] = '<label for="rex-exclude-categories">' . $addon->i18n('categories') . '</label>';
+$n['field'] = $tableSelect->get();
 $formElements[] = $n;
 
 $fragment = new rex_fragment();

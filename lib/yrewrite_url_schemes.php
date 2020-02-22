@@ -29,7 +29,7 @@ class yrewrite_url_schemes extends rex_yrewrite_scheme {
 		// Default
 		return parent::appendArticle($path, $art, $domain);
     }
-    
+
     /**
      * @param rex_article         $art
      * @param rex_yrewrite_domain $domain
@@ -55,7 +55,7 @@ class yrewrite_url_schemes extends rex_yrewrite_scheme {
         }
         return false;
     }
-    
+
     /**
 	 * Append category name
      * @param string              $path
@@ -66,12 +66,17 @@ class yrewrite_url_schemes extends rex_yrewrite_scheme {
      */
     public function appendCategory($path, rex_category $cat, rex_yrewrite_domain $domain) {
 		$scheme = rex_config::get('yrewrite_scheme', 'scheme', '');
-		
+        $excluded_categories = rex_config::get('yrewrite_scheme', 'excluded_categories', '');
+
 		if($scheme == 'yrewrite_one_level') {
 			// one level scheme
 			return $path;
 		}
-		
+
+        if ( in_array($cat->getId(),$excluded_categories) ) {
+            return $path;
+        }
+
 		// Default
 		return parent::appendCategory($path, $cat, $domain);
     }
@@ -84,7 +89,7 @@ class yrewrite_url_schemes extends rex_yrewrite_scheme {
      */
 	public function getRedirection(rex_article $art, rex_yrewrite_domain $domain) {
 		$urlreplacer = rex_config::get('yrewrite_scheme', 'urlreplacer', '');
-		
+
 		if($urlreplacer == 'yrewrite_scheme_urlreplace') {
 			// urlreplace scheme
 			if ($art->isStartArticle() && ($cats = $art->getCategory()->getChildren(true)) && !rex_article_slice::getFirstSliceForCtype(1, $art->getId(), rex_clang::getCurrentId())) {
@@ -102,8 +107,8 @@ class yrewrite_url_schemes extends rex_yrewrite_scheme {
 
 		// Default
 		return parent::getRedirection($art, $domain);
-     }  
-	
+     }
+
 	/**
 	 * Rewrites String
 	 * @param string $string String to rewrite
