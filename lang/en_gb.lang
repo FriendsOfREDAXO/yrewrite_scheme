@@ -16,3 +16,4 @@ yrewrite_scheme_config_saved = Configuration has been saved and cache has been c
 yrewrite_scheme_config_save = Save
 yrewrite_scheme_urlreplace = URL replacement
 yrewrite_scheme_urlreplace_disabled = disabled
+yrewrite_scheme_categories = Remove those Categories from URL

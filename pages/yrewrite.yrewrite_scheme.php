@@ -66,21 +66,16 @@ $content .= $fragment->parse('core/form/container.php');
 
 
 // exclude catgeories
-$tableSelect = new rex_select();
-$tableSelect->setMultiple();
-$tableSelect->setId('rex-exclude-categories');
-$tableSelect->setSize(20);
+
+$tableSelect = new rex_category_select($ignore_offlines = false, $clang = false,  $check_perms = false, $add_homepage = true);
 $tableSelect->setName('config[excluded_categories][]');
-$tableSelect->setAttribute('class', 'form-control');
-$query = 'SELECT id,catname,path FROM '.rex::getTable('article').' WHERE startarticle = 1 AND clang_id = '.rex_clang::getCurrentId();
-$sql = rex_sql::factory();
-$categories = $sql->getArray($query);
-foreach($categories as $category) {
-    $tableSelect->addOption($category['catname'],$category['id'] );
-    if ( in_array($category['id'], $addon->getConfig('excluded_categories'))) {
-        $tableSelect->setSelected($category);
-    }
-}
+$tableSelect->setId('rex-exclude-categories');
+$tableSelect->setMultiple();
+$tableSelect->setSelected($addon->getConfig('excluded_categories'));
+$tableSelect->setAttribute('class', 'form-control selectpicker ');
+$tableSelect->setAttribute('data-live-search', 'true');
+$tableSelect->setSize(10);
+
 
 $formElements = [];
 $n = [];
