@@ -69,8 +69,7 @@ class yrewrite_url_schemes extends rex_yrewrite_scheme
     public function appendCategory($path, rex_category $cat, rex_yrewrite_domain $domain)
     {
         $scheme = rex_config::get('yrewrite_scheme', 'scheme', '');
-        $excluded_categories = [];
-        $excluded_categories = rex_config::get('yrewrite_scheme', 'excluded_categories', '');
+        $excluded_categories = rex_config::get('yrewrite_scheme', 'excluded_categories', []);
 
         if ($scheme == 'yrewrite_one_level') {
             // one level scheme
