@@ -53,7 +53,7 @@ Für jede Sprache kann eingestellt werden, ob das optimierte YRewrite Schema ver
 ## Schema modifizieren
 
 yrewrite_scheme lässt sich wie das Original von YRewrite auch modifizieren / erweitern. 
-Hierzu muss sichergestellt sein, dass das AddOn oder das Projekt-AddOn das die Erweiterung enthält in der Package `load: late`nmotiert hat. 
+Hierzu muss sichergestellt werden, dass das AddOn oder das Projekt-AddOn das die Erweiterung enthält in der Package `load: late` notiert hat. 
 
 ### Beispiel Änderung der Umschreibung für das & Zeichen in einer Url 
 
@@ -93,7 +93,7 @@ if(rex_addon::get('yrewrite_scheme')->isAvailable()) {
 
 ## Eigenes Schema verwenden ohne dieses AddOn?
 
-Anleitung und Beispiele findet Ihr in der Dokumentation innerhalb des yrewrite-Addons oder auf [Github](https://github.com/yakamara/redaxo_yrewrite/blob/2bfc3c5e5b5776676241c300f65900fcc2914622/pages/docs.php#L239).
+Anleitung und Beispiele findet Ihr in der Dokumentation innerhalb des yrewrite-Addons oder auf [Github](https://github.com/yakamara/redaxo_yrewrite).
 
 ## Lizenz
 
