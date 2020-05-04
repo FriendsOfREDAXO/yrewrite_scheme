@@ -49,6 +49,46 @@ Für jede Sprache kann eingestellt werden, ob das optimierte YRewrite Schema ver
 
 编辑系统.html
 
+
+## Schema modifizieren
+
+yrewrite_scheme lässt sich wie das Original von YRewrite auch modifizieren / erweitern. 
+Hierzu muss sichergestellt sein, dass das AddOn oder das Projekt-AddOn das die Erweiterung enthält in der Package `load: late`nmotiert hat. 
+
+### Beispiel Änderung der Umschreibung für das & Zeichen in einer Url 
+
+```php
+class my_project_rewrite_scheme extends yrewrite_url_schemes
+{
+    /**
+     * @param string $string
+     * @param int    $clang
+     *
+     * @return string
+     */
+    public function normalize($string, $clang = 1)
+    {
+        $string = str_replace(
+      ['&'],
+      ['und'],
+      $string
+    );
+        return parent::normalize($string, $clang);
+    }
+}
+```
+
+Anmeldung in der boot.php des AddOns 
+
+```php
+<?php
+if(rex_addon::get('yrewrite_scheme')->isAvailable()) {
+	$scheme = new my_project_rewrite_scheme();
+	$scheme->setSuffix(rex_config::get('yrewrite_scheme', 'suffix'));
+	rex_yrewrite::setScheme($scheme);
+}
+```
+
 ---
 
 ## Eigenes Schema verwenden ohne dieses AddOn?
