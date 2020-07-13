@@ -46,10 +46,9 @@ class yrewrite_url_schemes extends rex_yrewrite_scheme
         }
 
         if ($domain->getStartId() == $art->getId()) {
-            if ($domain->getStartClang() == $art->getClang()) {
+            if (!$domain->isStartClangAuto() && $domain->getStartClang() == $art->getClang()) {
                 return '/';
             }
-
             return $this->getClang($art->getClang(), $domain) . $path_suffix;
         }
         if ($url = $art->getValue('yrewrite_url')) {
