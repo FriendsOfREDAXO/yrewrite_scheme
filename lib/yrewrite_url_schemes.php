@@ -25,7 +25,7 @@ class yrewrite_url_schemes extends rex_yrewrite_scheme
 
                 $catname = '/'.$this->normalize($category->getName(), $category->getClangId());
 
-                if ( strlen($path) > strlen($this->getClang($art->getClangId(),$domain).$catname) ) {
+                if ( !$art->isStartArticle() || strlen($path) > strlen($this->getClang($art->getClangId(),$domain).$catname) ) {
                     $path = str_replace($catname,'', $path);
                 }
             }
