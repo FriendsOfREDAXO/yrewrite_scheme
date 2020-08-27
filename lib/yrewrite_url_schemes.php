@@ -16,6 +16,21 @@ class yrewrite_url_schemes extends rex_yrewrite_scheme
     public function appendArticle($path, rex_article $art, rex_yrewrite_domain $domain)
     {
         $scheme = rex_config::get('yrewrite_scheme', 'scheme', '');
+
+        $excluded_categories = [];
+        $excluded_categories = rex_config::get('yrewrite_scheme', 'excluded_categories', '');
+
+        foreach ($art->getParentTree() as $category) {
+            if (in_array($category->getId(), $excluded_categories)) {
+
+                $catname = '/'.$this->normalize($category->getName(), $category->getClangId());
+
+                if ( !$art->isStartArticle() || strlen($path) > strlen($this->getClang($art->getClangId(),$domain).$catname) ) {
+                    $path = str_replace($catname,'', $path);
+                }
+            }
+        }
+
         if ($scheme == 'yrewrite_scheme_suffix') {
             // standard / suffix scheme
             $path_suffix = rex_config::get('yrewrite_scheme', 'suffix');
@@ -28,6 +43,7 @@ class yrewrite_url_schemes extends rex_yrewrite_scheme
             $path_suffix = rex_config::get('yrewrite_scheme', 'suffix');
             return $path . '/' . $this->normalize($art->getName(), $art->getClang()) . $path_suffix;
         }
+
         // Default
         return parent::appendArticle($path, $art, $domain);
     }
@@ -68,14 +84,9 @@ class yrewrite_url_schemes extends rex_yrewrite_scheme
     public function appendCategory($path, rex_category $cat, rex_yrewrite_domain $domain)
     {
         $scheme = rex_config::get('yrewrite_scheme', 'scheme', '');
-        $excluded_categories = rex_config::get('yrewrite_scheme', 'excluded_categories', []);
 
         if ($scheme == 'yrewrite_one_level') {
             // one level scheme
-            return $path;
-        }
-
-        if (in_array($cat->getId(), $excluded_categories)) {
             return $path;
         }
 
