@@ -18,7 +18,7 @@ class yrewrite_url_schemes extends rex_yrewrite_scheme
         $scheme = rex_config::get('yrewrite_scheme', 'scheme', '');
 
         $excluded_categories = [];
-        $excluded_categories = rex_config::get('yrewrite_scheme', 'excluded_categories', '');
+        $excluded_categories = rex_config::get('yrewrite_scheme', 'excluded_categories', []);
 
         foreach ($art->getParentTree() as $category) {
             if (in_array($category->getId(), $excluded_categories)) {
