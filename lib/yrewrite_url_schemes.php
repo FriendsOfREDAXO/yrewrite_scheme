@@ -33,15 +33,13 @@ class yrewrite_url_schemes extends rex_yrewrite_scheme
 
         if ($scheme == 'yrewrite_scheme_suffix') {
             // standard / suffix scheme
-            $path_suffix = rex_config::get('yrewrite_scheme', 'suffix');
             if ($art->isStartArticle() && $domain->getMountId() != $art->getId()) {
-                return $path . $path_suffix;
+                return $path . $this->suffix;
             }
-            return $path . '/' . $this->normalize($art->getName(), $art->getClang()) . $path_suffix;
+            return $path . '/' . $this->normalize($art->getName(), $art->getClang()) . $this->suffix;
         } else if ($scheme == 'yrewrite_one_level') {
             // one level scheme
-            $path_suffix = rex_config::get('yrewrite_scheme', 'suffix');
-            return $path . '/' . $this->normalize($art->getName(), $art->getClang()) . $path_suffix;
+            return $path . '/' . $this->normalize($art->getName(), $art->getClang()) . $this->suffix;
         }
 
         // Default
@@ -56,7 +54,7 @@ class yrewrite_url_schemes extends rex_yrewrite_scheme
      */
     public function getCustomUrl(rex_article $art, rex_yrewrite_domain $domain)
     {
-        $path_suffix = rex_config::get('yrewrite_scheme', 'suffix');
+        $path_suffix = $this->suffix;
         if ($path_suffix == '.html') {
             $path_suffix = '/';
         }

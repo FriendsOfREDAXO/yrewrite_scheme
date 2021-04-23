@@ -4,6 +4,14 @@ stellt eine Auswahl von URL-Schemes für YRewrite zur Verfügung.
 
 Für jedes Schema können der Suffix, die passende **URL-Normalisierung je Sprache** und eine URL-Ersetzung gewählt werden. Andere AddOns, die eigene Schemes installieren, sollten vorab deaktiviert werden. Die Einstellungen findet man im zusätzlichen Reiter **YRewrite Scheme** in YRewrite. 
 
+## Suffix
+
+Hier kann der Suffix der URLs festgelegt werden.
+Zur Auswahl stehen:
+- "ohne"
+- ".html"
+- "/"
+
 ## Schemen
 
 ### 1. Standard
