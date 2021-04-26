@@ -60,8 +60,8 @@ Für jede Sprache kann eingestellt werden, ob das optimierte YRewrite Schema ver
 
 ## Schema modifizieren
 
-yrewrite_scheme lässt sich wie das Original von YRewrite auch modifizieren / erweitern. 
-Hierzu muss sichergestellt werden, dass das AddOn oder das Projekt-AddOn das die Erweiterung enthält in der Package `load: late` notiert hat. Gegebenenfalls muss das AddOn oder das Projekt-AddOn reinstalliert werden.
+yrewrite_scheme lässt sich wie das Original YRewrite auch modifizieren / erweitern. 
+Hierzu muss sichergestellt werden, dass das eigene AddOn oder das Projekt-AddOn in der Package `load: late` notiert hat. Damit wäre sichergestellt, dass es nach dem yRewrite_scheme AddOn geladen und registriert wird. 
 
 ### Beispiel Änderung der Umschreibung für das & Zeichen in einer Url 
 
