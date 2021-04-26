@@ -62,7 +62,6 @@ Für jede Sprache kann eingestellt werden, ob das optimierte YRewrite Schema ver
 
 yrewrite_scheme lässt sich wie das Original von YRewrite auch modifizieren / erweitern. 
 Hierzu muss sichergestellt werden, dass das AddOn oder das Projekt-AddOn das die Erweiterung enthält in der Package `load: late` notiert hat. Gegebenenfalls muss das AddOn oder das Projekt-AddOn reinstalliert werden.
- Eine weitere Registrierung in der boot.php ist nicht nötig, da das bereits vorhandene Schema von YRewrite Scheme ergänzt wird. 
 
 ### Beispiel Änderung der Umschreibung für das & Zeichen in einer Url 
 
@@ -70,7 +69,6 @@ In die boot.php des project-AddOns:
 
 ```php
 $addon = rex_addon::get('project');
-
 $scheme = new my_project_rewrite_scheme();
 rex_yrewrite::setScheme($scheme);
 ```
