@@ -64,17 +64,18 @@ yrewrite_scheme lässt sich wie das Original von YRewrite auch modifizieren / er
 Hierzu muss sichergestellt werden, dass das AddOn oder das Projekt-AddOn das die Erweiterung enthält in der Package `load: late` notiert hat. Gegebenenfalls muss das AddOn oder das Projekt-AddOn reinstalliert werden.
  Eine weitere Registrierung in der boot.php ist nicht nötig, da das bereits vorhandene Schema von YRewrite Scheme ergänzt wird. 
 
-### Beispiel boot.php wenn man die Einstellungen von yrewrite_scheme um ein eigenes Scheme erweitern will
+### Beispiel Änderung der Umschreibung für das & Zeichen in einer Url 
+
+In die boot.php des project-AddOns: 
 
 ```php
 $addon = rex_addon::get('project');
 
 $scheme = new my_project_rewrite_scheme();
-$scheme->setSuffix(rex_config::get('yrewrite_scheme', 'suffix'));
 rex_yrewrite::setScheme($scheme);
 ```
 
-### Beispiel Änderung der Umschreibung für das & Zeichen in einer Url 
+In den Lib-Ordner des project AddOns (z.B. `my_project_rewrite_scheme.php) 
 
 ```php
 class my_project_rewrite_scheme extends yrewrite_url_schemes
