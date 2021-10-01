@@ -116,7 +116,8 @@ foreach(rex_clang::getAll() as $rex_clang) {
 	$select->setId('rex-urlencode-lang-' . $rex_clang->getId());
 	$select->setAttribute('class', 'form-control selectpicker');
 	$select->setName('config[urlencode-lang-' . $rex_clang->getId() . ']');
-	$select->addOption(rex_i18n::msg('yrewrite_scheme_yrewrite'), 'standard');
+    $select->addOption(rex_i18n::msg('yrewrite_scheme_original'), 'original');
+    $select->addOption(rex_i18n::msg('yrewrite_scheme_yrewrite'), 'standard');
 	$select->addOption(rex_i18n::msg('yrewrite_scheme_urlencode'), 'urlencode');
 
 	$select->setSelected($addon->getConfig('urlencode-lang-' . $rex_clang->getId()));
