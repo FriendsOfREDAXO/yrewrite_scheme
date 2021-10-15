@@ -18,7 +18,7 @@ Zur Auswahl stehen:
 
 Stellt ein optimiertes YRewrite-Schema zur Verfügung, das dieser Form entspricht:  
 `example.tld/sprache/kategorie/kategorie/…/artikel/`
-Es ist insofern optimiert, dass es html Tags aus URLs entfernt und eine erweiterte Ersetzungstabelle verwendet. Die erweiterte Ersetzungstabelle weiß nur bei speziellen Serverkonfigurationen unterschiede zum YRewrite Schema auf. Sie ist vor allem für Sprachen, die die URL kodierung Nutzen interessant.
+Es ist insofern optimiert, dass es html Tags aus URLs entfernt und eine erweiterte Ersetzungstabelle verwendet. Die erweiterte Ersetzungstabelle weist nur bei speziellen Serverkonfigurationen unterschiede zum YRewrite Schema auf. Sie ist vor allem für Sprachen, die die URL kodierung Nutzen interessant.
 
 ### 2. One Level
 
@@ -117,4 +117,5 @@ siehe [LICENSE](https://github.com/FriendsOfREDAXO/schemes/blob/master/LICENSE)
 - [Christian Gehrke](https://github.com/chrison94)
 - [Tobias Krais](https://github.com/tobiaskrais)
 - [Dirk Schürjohann](https://github.com/schuer)
+- [Norbert Micheel](https://github.com/tyrant88)
 - [FriendsOfREDAXO](https://github.com/FriendsOfREDAXO)
