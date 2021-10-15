@@ -169,6 +169,7 @@ $fragment = new rex_fragment();
 $fragment->setVar('content', $readmeContent, false);
 $fragment->setVar('toc', $readmeToc, false);
 $content = $fragment->parse('core/page/docs.php');
+$fragment = new rex_fragment();
 $fragment->setVar('title', rex_i18n::msg('credits_help'));
 $fragment->setVar('body', $content, false);
 $content = $fragment->parse('core/page/section.php');
