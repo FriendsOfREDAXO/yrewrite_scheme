@@ -116,6 +116,7 @@ see [LICENSE](https://github.com/FriendsOfREDAXO/schemes/blob/master/LICENSE)
 
 ## Credits
 
+- [Thomas Skerbis](https://github.com/skerbis)
 - [Joachim Dörr](https://github.com/joachimdoerr)
 - [Christian Gehrke](https://github.com/chrison94)
 - [Tobias Krais](https://github.com/tobiaskrais)
