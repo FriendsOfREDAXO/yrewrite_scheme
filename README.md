@@ -107,12 +107,8 @@ Anleitung und Beispiele findet Ihr in der Dokumentation innerhalb des yrewrite-A
 
 siehe [LICENSE](https://github.com/FriendsOfREDAXO/schemes/blob/master/LICENSE)
 
-## Projekt-Lead
-
-[KLXM Crossmedia / Thomas Skerbis](https://klxm.de)
-
 ## Credits
-
+- [Thomas Skerbis](https://github.com/skerbis)
 - [Joachim Dörr](https://github.com/joachimdoerr)
 - [Christian Gehrke](https://github.com/chrison94)
 - [Tobias Krais](https://github.com/tobiaskrais)
