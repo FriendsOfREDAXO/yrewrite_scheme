@@ -160,10 +160,18 @@ $output = '
 echo $output;
 
 // print help
-$file = rex_file::get(rex_path::addon('yrewrite_scheme','README.md'));
-$body = rex_markdown::factory()->parse($file);
+if ( is_readable($addon->getPath('README.'.rex_i18n::getLanguage().'.md')) ) {
+    [$readmeToc, $readmeContent] = rex_markdown::factory()->parseWithToc(rex_file::require($addon->getPath('README.'. rex_i18n::getLanguage() .'.md')), 2, 3, false);
+} else {
+    [$readmeToc, $readmeContent] = rex_markdown::factory()->parseWithToc(rex_file::require($addon->getPath('README.md')), 2, 3, false);
+}
+$fragment = new rex_fragment();
+$fragment->setVar('content', $readmeContent, false);
+$fragment->setVar('toc', $readmeToc, false);
+$content = $fragment->parse('core/page/docs.php');
 $fragment = new rex_fragment();
 $fragment->setVar('title', rex_i18n::msg('credits_help'));
-$fragment->setVar('body', $body, false);
+$fragment->setVar('body', $content, false);
 $content = $fragment->parse('core/page/section.php');
+
 echo $content;
