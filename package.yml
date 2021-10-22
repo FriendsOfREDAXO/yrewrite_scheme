@@ -1,5 +1,5 @@
 package: yrewrite_scheme
-version: '3.6.1-dev'
+version: '3.6.1'
 author: Friends Of REDAXO
 supportpage: https://github.com/FriendsOfREDAXO/yrewrite_scheme/
 pages:
