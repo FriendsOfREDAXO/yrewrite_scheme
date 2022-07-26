@@ -9,6 +9,6 @@ pages:
         icon: rex-icon fa-exchange
 
 requires:
-    redaxo: '^5.11.2'
+    redaxo: '^5.12'
     packages:
         yrewrite: '>=2.7'
