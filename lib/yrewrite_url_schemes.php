@@ -20,9 +20,9 @@ class yrewrite_url_schemes extends rex_yrewrite_scheme
 
         foreach ($art->getParentTree() as $category) {
             if (in_array($category->getId(), $excludedCategories)) {
-                $catname = '/' . $this->normalize($category->getName(), $category->getClangId());
+                $catname = '\/' . $this->normalize($category->getName(), $category->getClangId());
                 if (!$art->isStartArticle() || strlen($path) > strlen($this->getClang($art->getClangId(), $domain) . $catname)) {
-                    $path = str_replace($catname, '', $path);
+                    $path = preg_replace('/' . $catname . '/U', '', $path, 1);
                 }
             }
         }
