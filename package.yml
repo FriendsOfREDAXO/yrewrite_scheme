@@ -1,14 +1,14 @@
 package: yrewrite_scheme
-version: '3.7.2'
+version: '3.8.0'
 author: Friends Of REDAXO
 supportpage: https://github.com/FriendsOfREDAXO/yrewrite_scheme/
 pages:
     yrewrite/yrewrite_scheme:
         title: 'translate:yrewrite_scheme_title'
         perm: admin
-        icon: rex-icon fa-exchange
+        icon: rex-icon fa-solid fa-language
 
 requires:
-    redaxo: '^5.12'
+    redaxo: '^5.18.0'
     packages:
-        yrewrite: '>=2.7'
+        yrewrite: '>=2.9'

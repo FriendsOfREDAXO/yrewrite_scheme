@@ -2,7 +2,7 @@
 
 stellt eine Auswahl von URL-Schemes für YRewrite zur Verfügung. 
 
-Für jedes Schema können der Suffix, die passende **URL-Normalisierung je Sprache** und eine URL-Ersetzung gewählt werden. Andere AddOns, die eigene Schemes installieren, sollten vorab deaktiviert werden. Die Einstellungen findet man im zusätzlichen Reiter **YRewrite Scheme** in YRewrite. 
+Für jedes Schema können der Suffix, die passende **URL-Normalisierung je Sprache**, sprachspezifische Zeichenersetzungen und eine URL-Ersetzung gewählt werden. Andere AddOns, die eigene Schemes installieren, sollten vorab deaktiviert werden. Die Einstellungen findet man im zusätzlichen Reiter **YRewrite Scheme** in YRewrite. 
 
 ## Suffix
 
@@ -47,8 +47,6 @@ Hier stehen 2 Varianten zur Auswahl:
 
 > Ideal für Webpräsenzen, die keine Vorschaltseiten für die jeweilige Kategorie benötigen (z.B. bei einer Dropdown-Navigation)
 
-
-
 ## Sprachen
 
 Für jede Sprache kann eingestellt werden, ob das optimierte YRewrite Schema verwendet werden soll, oder die Zeichen URL kodiert werden sollen. Letzteres ermöglicht russische, chinesische und andere URLs - kurz gesagt URLs mit Zeichen die nicht das lateinische Alphabet verwenden.
@@ -57,13 +55,26 @@ Für jede Sprache kann eingestellt werden, ob das optimierte YRewrite Schema ver
 
 编辑系统.html
 
+## Sprachspezifische Ersetzungen
+
+Für jede Sprache können individuelle Zeichenersetzungen definiert werden. Diese werden vor den Standard-Ersetzungen angewendet und ermöglichen eine feinere Kontrolle über die URL-Generierung.
+
+Beispiele für Ersetzungen:
+- "&" → "und" (für Deutsch)
+- "&" → "and" (für Englisch)
+- "+" → "plus" (für alle Sprachen)
+
+Die sprachspezifischen Ersetzungen können über das Backend einfach hinzugefügt, bearbeitet oder entfernt werden.
 
 ## Schema modifizieren
 
 YRewrite Scheme lässt sich wie das Original YRewrite auch modifizieren / erweitern. 
 Hierzu muss sichergestellt werden, dass das eigene AddOn oder das Projekt-AddOn in der package.yml `load: late` notiert hat. Damit wäre sichergestellt, dass es nach dem yRewrite_scheme AddOn geladen und registriert wird. 
 
+Hinweis: ggf. ist nach Änderung zu `load: late` ein Reinstall des Project-AddOns erforderlich
+
 ### Beispiel Änderung der Umschreibung für das & Zeichen in einer Url 
+
 
 In die boot.php des project-AddOns: 
 
@@ -95,7 +106,6 @@ class my_project_rewrite_scheme extends yrewrite_url_schemes
     }
 }
 ```
-
 
 ---
 
