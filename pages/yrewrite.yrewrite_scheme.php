@@ -188,7 +188,7 @@ foreach (rex_clang::getAll() as $rex_clang) {
 
 // JavaScript für dynamisches Hinzufügen/Entfernen von Ersetzungszeilen
 $content .= '
-<script type="text/javascript">
+<script type="text/javascript" nonce="' . rex_response::getNonce() . '">
 $(document).ready(function() {
     // Neue Ersetzung hinzufügen
     $(document).on("click", ".add-replace", function() {
