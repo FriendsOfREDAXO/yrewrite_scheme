@@ -1,14 +1,14 @@
 # YRewrite Scheme
 
-provides a choice of 2 URL schemes for YRewrite.
+Provides a selection of URL schemes for YRewrite.
 
-For each scheme, the suffix, the appropriate **URL normalisation per language** and a URL replacement can be selected. Other AddOns that install their own schemes should be deactivated in advance. The settings can be found in the additional tab **YRewrite Scheme** in YRewrite. 
+For each scheme, the suffix, the matching **URL normalization per language**, language-specific character replacements, and a URL replacement can be selected. Other AddOns that install their own schemes should be deactivated beforehand. The settings can be found in the additional tab **YRewrite Scheme** in YRewrite.
 
 ## Suffix
 
-The suffix of the URLs can be set here.
-The following are available for selection:
-- "without"
+Here you can define the suffix of the URLs.
+Available options:
+- "none"
 - ".html"
 - "/"
 
@@ -16,59 +16,66 @@ The following are available for selection:
 
 ### 1. Standard
 
-Provides an optimised YRewrite scheme corresponding to this form:  
-`example.tld/language/category/category/.../article/`  
-It is optimised in that it removes html tags from URLs and uses an extended replacement table. The extended replacement table only differs from the YRewrite scheme in some special server configurations. It is especially interesting for languages that use URL coding.
+Provides an optimized YRewrite scheme that conforms to this format:
+`example.tld/language/category/category/…/article/`
+It is optimized in that it removes HTML tags from URLs and uses an extended replacement table. The extended replacement table differs from the YRewrite scheme only in special server configurations. It is especially interesting for languages that use URL encoding.
 
 ### 2. One Level
 
 Implements a short URL scheme for all subpages.
 
-__before:__
+__Before:__
 
-`example.tld/en/coffee/beans/india/malabar.html`  _(yrewrite 1)_  
-`example.tld/en/coffee/beans/india/malabar/`  _(yrewrite 2)_  
+`example.tld/en/coffee/beans/india/malabar.html`  _(yrewrite 1)_
+`example.tld/en/coffee/beans/india/malabar/`  _(yrewrite 2)_
 
-__after:__
+__After:__
 
-`example.tld/en/malabar`  _(ohne suffix)_  
+`example.tld/en/malabar`  _(without suffix)_
 
-> ⚠️ Important: The scheme only makes sense if pages __do not occur more than once__ within a language. For example, if Malabar coffee existed not only in 🇮🇳 India but also in 🇧🇷 Brazil, it would be better not to use this URL scheme!
+> ⚠️ Important: The scheme is only useful if pages within a language __do not occur multiple times__. For example, if Malabar coffee were available not only in 🇮🇳 India but also in 🇧🇷 Brazil, this URL scheme should preferably not be used!
 
 ---
 
 ## URLReplace
 
-Replaces the URLs of the parent categories with the URLs of the next corresponding child category.  
-There are 2 variants to choose from here:
+Replaces the URLs of the parent categories with the URLs of the nearest child category.
+There are 2 options to choose from:
 
-- Variant 1: Only the categories whose start articles have no content are replaced.
-- Variant 2: All categories are replaced, regardless of the content of the start articles.
+- Option 1: Only categories whose start articles have no content are replaced.
+- Option 2: All categories are replaced, regardless of the content of the start articles.
 
-> Ideal for websites that do not require preliminary pages for the respective category (e.g. for a dropdown navigation).
-
-
-
+> Ideal for websites that do not need introductory pages for the respective category (e.g. for a dropdown navigation)
 
 ## Languages
 
-For each language, you can choose whether to use the YRewrite standard scheme, the optimised YRewrite scheme or to URL-encode the characters.  
-The latter allows Russian, Chinese and other URLs - in short, URLs with characters that do not use the Latin alphabet.
+For each language, you can specify whether to use the optimized YRewrite scheme, or whether to encode the characters in the URL. The latter enables Russian, Chinese and other URLs - in short, URLs with characters that do not use the Latin alphabet.
 
 мне-нравится-редакс.html
 
 编辑系统.html
 
+## Language-Specific Replacements
 
-## Modify scheme
+Individual character replacements can be defined for each language. These are applied before the standard replacements and allow for finer control over URL generation.
 
-YRewrite Scheme can also be modified / extended like the original YRewrite.
-For this, it must be ensured that your own AddOn or the project AddOn has `load: late` noted in the package.yml. This would ensure that it is loaded and registered after the yRewrite_scheme AddOn.
+Examples of replacements:
+- "&" → "und" (for German)
+- "&" → "and" (for English)
+- "+" → "plus" (for all languages)
 
+Language-specific replacements can be easily added, edited, or removed via the backend.
 
-### Example for changing the paraphrase for the & character in an url 
+## Modify Scheme
 
-In the file `boot.php` of project-AddOn: 
+YRewrite Scheme, like the original YRewrite, can also be modified/extended.
+To do this, you must ensure that your own AddOn or the project AddOn has `load: late` noted in the package.yml. This would ensure that it is loaded and registered after the yrewrite_scheme AddOn.
+
+Note: If necessary, a reinstall of the Project AddOn is required after changing to `load: late`.
+
+### Example: Changing the rewriting for the & character in a URL
+
+In the boot.php of the project AddOn:
 
 ```php
 $addon = rex_addon::get('project');
@@ -76,7 +83,7 @@ $scheme = new my_project_rewrite_scheme();
 rex_yrewrite::setScheme($scheme);
 ```
 
-In the lib folder of the project AddOn (e.g. `my_project_rewrite_scheme.php`)
+In the Lib folder of the project AddOn (e.g. `my_project_rewrite_scheme.php)
 
 ```php
 class my_project_rewrite_scheme extends yrewrite_url_schemes
@@ -91,7 +98,7 @@ class my_project_rewrite_scheme extends yrewrite_url_schemes
     {
         $string = str_replace(
       ['&'],
-      ['and'],
+      ['und'],
       $string
     );
         return parent::normalize($string, $clang);
@@ -99,23 +106,17 @@ class my_project_rewrite_scheme extends yrewrite_url_schemes
 }
 ```
 
-
 ---
 
-## Use your own schema without this add-on?
+## Using Your Own Scheme Without This AddOn?
 
-Instructions and examples can be found in the documentation within the yrewrite addon or on [Github](https://github.com/yakamara/redaxo_yrewrite).
+Instructions and examples can be found in the documentation within the yrewrite AddOn or on [Github](https://github.com/yakamara/redaxo_yrewrite).
 
 ## License
 
 see [LICENSE](https://github.com/FriendsOfREDAXO/schemes/blob/master/LICENSE)
 
-## Project lead
-
-[KLXM Crossmedia / Thomas Skerbis](https://klxm.de)
-
 ## Credits
-
 - [Thomas Skerbis](https://github.com/skerbis)
 - [Joachim Dörr](https://github.com/joachimdoerr)
 - [Christian Gehrke](https://github.com/chrison94)
