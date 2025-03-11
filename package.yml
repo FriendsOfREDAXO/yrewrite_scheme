@@ -6,7 +6,7 @@ pages:
     yrewrite/yrewrite_scheme:
         title: 'translate:yrewrite_scheme_title'
         perm: admin
-        icon: rex-icon fa-exchange
+        icon: rex-icon fa-solid fa-language
 
 requires:
     redaxo: '^5.18.0'
