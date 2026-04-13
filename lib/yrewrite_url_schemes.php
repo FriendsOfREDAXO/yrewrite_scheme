@@ -87,7 +87,7 @@ class yrewrite_url_schemes extends rex_yrewrite_scheme {
 		
 		if($urlreplacer == 'yrewrite_scheme_urlreplace') {
 			// urlreplace scheme
-			if ($art->isStartArticle() && ($cats = $art->getCategory()->getChildren(true)) && !rex_article_slice::getFirstSliceForCtype(1, $art->getId(), rex_clang::getCurrentId())) {
+			if ($art->isStartArticle() && $domain->getMountId() != $art->getId() && ($cats = $art->getCategory()->getChildren(true)) && !rex_article_slice::getFirstSliceForCtype(1, $art->getId(), rex_clang::getCurrentId())) {
 				return $cats[0];
 			}
 			return false;
