@@ -10,5 +10,10 @@ pages:
 
 requires:
     redaxo: '^5.18.0'
+    php:
+        version: '>=8.1'
     packages:
         yrewrite: '>=2.9'
+
+installer_ignore:
+    - .github
