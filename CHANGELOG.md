@@ -22,7 +22,7 @@
 
 ### ⚡ Performance
 
-* **Config-Caching**: `rex_config::get()`-Aufrufe in `appendArticle()` und `getRedirection()` werden jetzt über statische Variablen gecacht, um wiederholte DB-Zugriffe im URL-Generierungs-Hotpath zu vermeiden
+* **Config-Caching**: `rex_config::get()`-Aufrufe in `appendArticle()` und `getRedirection()` werden jetzt über statische Variablen gecacht – die Konfiguration wird damit pro Request nur einmal gelesen statt bei jedem der n Artikel- und Kategorie-Aufrufe im URL-Generierungs-Durchlauf
 
 ---
 
