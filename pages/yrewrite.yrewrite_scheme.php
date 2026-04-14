@@ -13,16 +13,16 @@ if (rex_post('formsubmit', 'string') == '1') {
     ];
     
     // Sprachspezifische Ersetzungen speichern
+    $postConfig = rex_post('config', 'array', []);
     foreach (rex_clang::getAll() as $rex_clang) {
         $clang_id = $rex_clang->getId();
         $configs[] = ['urlencode-lang-' . $clang_id, 'string'];
         
         // Sprachspezifische Ersetzungen aus dem POST-Array lesen
         $language_replaces = [];
-        $postConfig = rex_post('config', 'array', []);
         $rawReplaces = isset($postConfig['language_replaces_' . $clang_id]) && is_array($postConfig['language_replaces_' . $clang_id]) ? $postConfig['language_replaces_' . $clang_id] : [];
         foreach ($rawReplaces as $item) {
-            if (is_array($item) && !empty($item['search']) && !empty($item['replace'])) {
+            if (is_array($item) && isset($item['search'], $item['replace']) && (string) $item['search'] !== '' && (string) $item['replace'] !== '') {
                 $language_replaces[] = [
                     'search' => (string) $item['search'],
                     'replace' => (string) $item['replace'],
