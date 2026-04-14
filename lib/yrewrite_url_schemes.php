@@ -14,8 +14,12 @@ class yrewrite_url_schemes extends rex_yrewrite_scheme
      */
     public function appendArticle($path, rex_article $art, rex_yrewrite_domain $domain)
     {
-        $scheme = rex_config::get('yrewrite_scheme', 'scheme', '');
-        $excludedCategories = rex_config::get('yrewrite_scheme', 'excluded_categories', []);
+        static $scheme = null;
+        static $excludedCategories = null;
+        if ($scheme === null) {
+            $scheme = rex_config::get('yrewrite_scheme', 'scheme', '');
+            $excludedCategories = rex_config::get('yrewrite_scheme', 'excluded_categories', []);
+        }
 
         foreach ($art->getParentTree() as $category) {
             if (in_array($category->getId(), $excludedCategories)) {
@@ -93,7 +97,10 @@ class yrewrite_url_schemes extends rex_yrewrite_scheme
      */
     public function getRedirection(rex_article $art, rex_yrewrite_domain $domain)
     {
-        $urlReplacer = rex_config::get('yrewrite_scheme', 'urlreplacer', '');
+        static $urlReplacer = null;
+        if ($urlReplacer === null) {
+            $urlReplacer = rex_config::get('yrewrite_scheme', 'urlreplacer', '');
+        }
 
         if ($urlReplacer === 'yrewrite_scheme_urlreplace') {
             // urlreplace scheme

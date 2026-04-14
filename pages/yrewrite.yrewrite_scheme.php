@@ -13,20 +13,20 @@ if (rex_post('formsubmit', 'string') == '1') {
     ];
     
     // Sprachspezifische Ersetzungen speichern
+    $postConfig = rex_post('config', 'array', []);
     foreach (rex_clang::getAll() as $rex_clang) {
         $clang_id = $rex_clang->getId();
         $configs[] = ['urlencode-lang-' . $clang_id, 'string'];
         
         // Sprachspezifische Ersetzungen aus dem POST-Array lesen
         $language_replaces = [];
-        if (isset($_POST['config']['language_replaces_' . $clang_id]) && is_array($_POST['config']['language_replaces_' . $clang_id])) {
-            foreach ($_POST['config']['language_replaces_' . $clang_id] as $index => $item) {
-                if (!empty($item['search']) && !empty($item['replace'])) {
-                    $language_replaces[] = [
-                        'search' => $item['search'],
-                        'replace' => $item['replace']
-                    ];
-                }
+        $rawReplaces = isset($postConfig['language_replaces_' . $clang_id]) && is_array($postConfig['language_replaces_' . $clang_id]) ? $postConfig['language_replaces_' . $clang_id] : [];
+        foreach ($rawReplaces as $item) {
+            if (is_array($item) && isset($item['search'], $item['replace']) && (string) $item['search'] !== '' && (string) $item['replace'] !== '') {
+                $language_replaces[] = [
+                    'search' => (string) $item['search'],
+                    'replace' => (string) $item['replace'],
+                ];
             }
         }
         $addon->setConfig('language_replaces_' . $clang_id, $language_replaces);
@@ -36,9 +36,6 @@ if (rex_post('formsubmit', 'string') == '1') {
 
     echo rex_view::success($addon->i18n('config_saved'));
 
-    if (rex::getVersion() == "5.6.0") {
-       rex_config::save(); // REX 5.6.0 Save Fix
-    }
     rex_delete_cache();
 }
 
@@ -50,7 +47,7 @@ $select = new rex_select();
 $select->setId('rex-urlreplacer-suffix');
 $select->setAttribute('class', 'form-control selectpicker');
 $select->setName('config[suffix]');
-$select->addOption($addon->i18n('oSuf'), Null);
+$select->addOption($addon->i18n('oSuf'), null);
 $select->addOption($addon->i18n('hSuf'), '.html');
 $select->addOption($addon->i18n('zSuf'), '/');
 
@@ -163,8 +160,8 @@ foreach (rex_clang::getAll() as $rex_clang) {
     if (!empty($language_replaces)) {
         foreach ($language_replaces as $index => $item) {
             $formContent .= '<tr>';
-            $formContent .= '<td><input type="text" class="form-control" name="config[language_replaces_' . $clang_id . '][' . $index . '][search]" value="' . htmlspecialchars($item['search']) . '"></td>';
-            $formContent .= '<td><input type="text" class="form-control" name="config[language_replaces_' . $clang_id . '][' . $index . '][replace]" value="' . htmlspecialchars($item['replace']) . '"></td>';
+            $formContent .= '<td><input type="text" class="form-control" name="config[language_replaces_' . $clang_id . '][' . $index . '][search]" value="' . htmlspecialchars($item['search'], ENT_QUOTES | ENT_HTML5, 'UTF-8') . '"></td>';
+            $formContent .= '<td><input type="text" class="form-control" name="config[language_replaces_' . $clang_id . '][' . $index . '][replace]" value="' . htmlspecialchars($item['replace'], ENT_QUOTES | ENT_HTML5, 'UTF-8') . '"></td>';
             $formContent .= '<td><button type="button" class="btn btn-danger remove-replace">-</button></td>';
             $formContent .= '</tr>';
         }
@@ -172,8 +169,8 @@ foreach (rex_clang::getAll() as $rex_clang) {
     
     // Leere Zeile für neue Einträge
     $formContent .= '<tr>';
-    $formContent .= '<td><input type="text" class="form-control" name="config[language_replaces_' . $clang_id . '][' . count($language_replaces) . '][search]" placeholder="&"></td>';
-    $formContent .= '<td><input type="text" class="form-control" name="config[language_replaces_' . $clang_id . '][' . count($language_replaces) . '][replace]" placeholder="' . ($lang_name === 'Deutsch' ? 'und' : 'and') . '"></td>';
+    $formContent .= '<td><input type="text" class="form-control" name="config[language_replaces_' . $clang_id . '][' . count($language_replaces) . '][search]"></td>';
+    $formContent .= '<td><input type="text" class="form-control" name="config[language_replaces_' . $clang_id . '][' . count($language_replaces) . '][replace]"></td>';
     $formContent .= '<td><button type="button" class="btn btn-success add-replace">+</button></td>';
     $formContent .= '</tr>';
     
@@ -185,32 +182,6 @@ foreach (rex_clang::getAll() as $rex_clang) {
     $fragment->setVar('body', $formContent, false);
     $content .= $fragment->parse('core/page/section.php');
 }
-
-// JavaScript für dynamisches Hinzufügen/Entfernen von Ersetzungszeilen
-$content .= '
-<script type="text/javascript" nonce="' . rex_response::getNonce() . '">
-$(document).ready(function() {
-    // Neue Ersetzung hinzufügen
-    $(document).on("click", ".add-replace", function() {
-        var $row = $(this).closest("tr");
-        var $table = $row.closest("table");
-        var langId = $table.closest(".language-replaces").data("lang-id");
-        var rowCount = $table.find("tbody tr").length;
-        
-        var $newRow = $("<tr></tr>");
-        $newRow.append("<td><input type=\"text\" class=\"form-control\" name=\"config[language_replaces_" + langId + "][" + rowCount + "][search]\"></td>");
-        $newRow.append("<td><input type=\"text\" class=\"form-control\" name=\"config[language_replaces_" + langId + "][" + rowCount + "][replace]\"></td>");
-        $newRow.append("<td><button type=\"button\" class=\"btn btn-danger remove-replace\">-</button></td>");
-        
-        $row.before($newRow);
-    });
-    
-    // Ersetzung entfernen
-    $(document).on("click", ".remove-replace", function() {
-        $(this).closest("tr").remove();
-    });
-});
-</script>';
 
 // save-Button
 $formElements = [];
